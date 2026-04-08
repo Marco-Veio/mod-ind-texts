@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="max-w-4xl mx-auto bg-white p-10 shadow-lg mt-10 mb-10 rounded-2xl">
@@ -118,6 +120,15 @@ export default function Home() {
         contínua. A qualidade é um fator essencial para o sucesso das empresas e
         para a produção de produtos confiáveis e eficientes.
       </p>
+
+      <Link
+        href="https://api.socrative.com/rc/yLhkrp?method=qr"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mt-6 text-blue-600 font-medium hover:text-blue-800 transition duration-300"
+      >
+        Abra o teste clicando aqui
+      </Link>
     </div>
   );
 }
