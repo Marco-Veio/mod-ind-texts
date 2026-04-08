@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Link() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     setTimeout(
