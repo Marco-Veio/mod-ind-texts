@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 
 export default function Home() {
   return (
@@ -235,14 +235,7 @@ export default function Home() {
         atender às demandas do mercado com excelência.
       </p>
 
-      <Link
-        href="https://api.socrative.com/rc/yLhkrp?method=qr"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-6 text-blue-600 font-medium hover:text-blue-800 transition duration-300"
-      >
-        Abra o teste clicando aqui
-      </Link>
+      <Link />
     </div>
   );
 }
