@@ -5,10 +5,10 @@ import Link from "@/components/Link";
 import { useState } from "react";
 
 export default function Home() {
-  const [checked, setChecked] = useState([false, false, false]);
+  const [checked, setChecked] = useState(new Array(3).fill(false));
 
   const handleChange = (index: number) => {
-    setChecked(oldState => {
+    setChecked((oldState) => {
       const newState = [...oldState];
       newState[index] = !newState[index];
       return newState;
