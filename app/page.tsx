@@ -43,6 +43,12 @@ export default function Home() {
         >
           Novas Ideias
         </Link>
+        <Link
+          href="/analisando-complexidades"
+          className="text-blue-600 font-medium hover:text-blue-800 transition duration-300"
+        >
+          Analisando Complexidades
+        </Link>
       </div>
 
       <div className="max-w-4xl mx-auto bg-white p-10 shadow-lg mt-10 mb-10 rounded-2xl flex flex-col gap-2">
@@ -84,6 +90,12 @@ export default function Home() {
           className="text-blue-600 font-medium hover:text-blue-800 transition duration-300"
         >
           Novas Ideias
+        </Link>
+        <Link
+          href="/analisando-complexidades"
+          className="text-blue-600 font-medium hover:text-blue-800 transition duration-300"
+        >
+          Analisando Complexidades
         </Link>
       </div>
     </div>
