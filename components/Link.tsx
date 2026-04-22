@@ -2,7 +2,7 @@
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
 
-export default function Link() {
+export default function Link({disabled}: {disabled?: boolean}) {
   const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function Link() {
     );
   }, []);
 
-  if (isOpen) {
+  if (isOpen && !disabled) {
     return (
       <NextLink
         href="https://api.socrative.com/rc/yLhkrp?method=qr"
