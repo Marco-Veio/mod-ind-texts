@@ -1,6 +1,20 @@
+"use client";
+
+import Checkbox from "@/components/Checkbox";
 import Link from "@/components/Link";
+import { useState } from "react";
 
 export default function Home() {
+  const [checked, setChecked] = useState(new Array(3).fill(false));
+
+  const handleChange = (index: number) => {
+    setChecked((oldState) => {
+      const newState = [...oldState];
+      newState[index] = !newState[index];
+      return newState;
+    });
+  };
+
   return (
     <div className="max-w-4xl mx-auto bg-white p-10 shadow-lg mt-10 mb-10 rounded-2xl">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
@@ -38,6 +52,8 @@ export default function Home() {
         produção, desde a escolha da matéria-prima, passando pela fabricação,
         montagem, armazenamento e transporte.
       </p>
+
+      <Checkbox checked={checked[0]} onChange={() => handleChange(0)} />
 
       <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
         Controle de Qualidade
@@ -92,6 +108,8 @@ export default function Home() {
         problemas e propor melhorias nos processos.
       </p>
 
+      <Checkbox checked={checked[1]} onChange={() => handleChange(1)} />
+
       <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
         Importância da Qualidade na Indústria
       </h2>
@@ -109,6 +127,8 @@ export default function Home() {
         todos os envolvidos no processo produtivo.
       </p>
 
+      <Checkbox checked={checked[2]} onChange={() => handleChange(2)} />
+
       <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
         Conclusão
       </h2>
@@ -121,7 +141,7 @@ export default function Home() {
         para a produção de produtos confiáveis e eficientes.
       </p>
 
-      <Link />
+      <Link disabled={!checked.every(Boolean)} />
     </div>
   );
 }

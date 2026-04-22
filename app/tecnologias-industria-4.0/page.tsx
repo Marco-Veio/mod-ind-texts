@@ -1,6 +1,20 @@
+"use client";
+
+import Checkbox from "@/components/Checkbox";
 import Link from "@/components/Link";
+import { useState } from "react";
 
 export default function Home() {
+  const [checked, setChecked] = useState(new Array(3).fill(false));
+
+  const handleChange = (index: number) => {
+    setChecked((oldState) => {
+      const newState = [...oldState];
+      newState[index] = !newState[index];
+      return newState;
+    });
+  };
+
   return (
     <div className="max-w-4xl mx-auto bg-white p-10 shadow-lg mt-10 mb-10 rounded-2xl">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
@@ -38,9 +52,12 @@ export default function Home() {
         melhorar a tomada de decisões estratégicas dentro da indústria.
       </p>
 
+      <Checkbox checked={checked[0]} onChange={() => handleChange(0)} />
+
       <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
         Computação em Nuvem
       </h2>
+
       <p className="mb-4 text-gray-700 leading-relaxed">
         A computação em nuvem possibilita o armazenamento e acesso remoto de
         dados, além de oferecer flexibilidade e redução de custos com
@@ -78,9 +95,12 @@ export default function Home() {
         produtividade.
       </p>
 
+      <Checkbox checked={checked[1]} onChange={() => handleChange(1)} />
+
       <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
         Manufatura Aditiva
       </h2>
+
       <p className="mb-4 text-gray-700 leading-relaxed">
         Conhecida como impressão 3D, a manufatura aditiva permite produzir peças
         a partir de modelos digitais, com menor desperdício de material e maior
@@ -101,6 +121,7 @@ export default function Home() {
       <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
         Cibersegurança
       </h2>
+
       <p className="mb-4 text-gray-700 leading-relaxed">
         Com o aumento da conectividade, a proteção de dados e sistemas se torna
         fundamental. A cibersegurança garante a integridade das informações e a
@@ -110,6 +131,7 @@ export default function Home() {
       <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
         Conclusão
       </h2>
+
       <p className="mb-4 text-gray-700 leading-relaxed">
         As tecnologias habilitadoras da Indústria 4.0 transformam a maneira como
         as empresas produzem, organizam e inovam. Reconhecer essas tecnologias é
@@ -118,7 +140,9 @@ export default function Home() {
         produção será cada vez mais necessária.
       </p>
 
-      <Link />
+      <Checkbox checked={checked[2]} onChange={() => handleChange(2)} />
+
+      <Link disabled={!checked.every(Boolean)} />
     </div>
   );
 }

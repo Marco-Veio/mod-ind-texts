@@ -1,6 +1,20 @@
+"use client";
+
+import Checkbox from "@/components/Checkbox";
 import Link from "@/components/Link";
+import { useState } from "react";
 
 export default function Home() {
+  const [checked, setChecked] = useState(new Array(3).fill(false));
+
+  const handleChange = (index: number) => {
+    setChecked((oldState) => {
+      const newState = [...oldState];
+      newState[index] = !newState[index];
+      return newState;
+    });
+  };
+
   return (
     <div className="max-w-4xl mx-auto bg-white p-10 shadow-lg mt-10 mb-10 rounded-2xl">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
@@ -66,6 +80,8 @@ export default function Home() {
         operacional.
       </p>
 
+      <Checkbox checked={checked[0]} onChange={() => handleChange(0)} />
+
       <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
         Criação de Fluxo Contínuo
       </h2>
@@ -119,6 +135,8 @@ export default function Home() {
         Pequenas melhorias ao longo do tempo podem gerar grandes resultados,
         tornando a organização cada vez mais eficiente.
       </p>
+
+      <Checkbox checked={checked[1]} onChange={() => handleChange(1)} />
 
       <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-800">
         Os Tipos de Desperdício no Lean
@@ -176,7 +194,9 @@ export default function Home() {
         destacar no mercado.
       </p>
 
-      <Link />
+      <Checkbox checked={checked[2]} onChange={() => handleChange(2)} />
+
+      <Link disabled={!checked.every(Boolean)} />
     </div>
   );
 }
