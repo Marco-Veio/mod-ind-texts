@@ -305,7 +305,7 @@ export default function Home() {
         equilibrada e produtiva.
       </p>
 
-      <Checkbox checked={checked[2]} onChange={() => handleChange(2)} />
+      {/* <Checkbox checked={checked[2]} onChange={() => handleChange(2)} /> */}
 
       {/* <Link disabled={!checked.every(Boolean)} /> */}
     </div>
